@@ -45,7 +45,7 @@ creator.addChild(scene2);
 
 // Create Text
 const text = new FFText({
-   text: "瓜子",
+   text: "瓜子111",
    fontSize: 40,
    x: width / 2,
    y: 60

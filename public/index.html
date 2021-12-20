@@ -5,6 +5,11 @@
     <title>pic2video</title>
   </head>
   <body>
-    <video src="./cat.mp4" controls></video>
+    <script type="text/javascript">
+    let video = document.createElement('video')
+    video.controls = true
+    video.src = './cat.mp4?v=' + new Date().getTime()
+    document.body.appendChild(video)
+    </script>
   </body>
 </html>
