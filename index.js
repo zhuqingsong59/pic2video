@@ -1,14 +1,16 @@
+// const config = require('./config')
+// console.log(config)
+
 const path = require('path');
 const colors = require('colors');
 const { FFScene, FFText, FFAlbum, FFImage, FFCreator } = require("ffcreator");
 const outputDir = path.join(__dirname, './public/');
 const cacheDir = path.join(__dirname, './cache/');
 
-const img1 = path.join(__dirname, './img/1.jpeg');
-const img2 = path.join(__dirname, './img/2.jpeg');
-const img3 = path.join(__dirname, './img/3.jpeg');
-const img4 = path.join(__dirname, './img/4.jpeg');
-const cover = path.join(__dirname, './img/5.jpeg');
+const img1 = path.join(__dirname, './resources/album/1.jpeg');
+const img2 = path.join(__dirname, './resources/album/2.jpeg');
+const img3 = path.join(__dirname, './resources/album/3.jpeg');
+const cover = path.join(__dirname, './resources/album/5.jpeg');
 
 const width = 640;
 const height = 500;
@@ -45,7 +47,7 @@ creator.addChild(scene2);
 
 // Create Text
 const text = new FFText({
-   text: "瓜子111",
+   text: "瓜子",
    fontSize: 40,
    x: width / 2,
    y: 60
@@ -59,7 +61,7 @@ scene2.addChild(text);
 
 // Create a multi-photo Album
 const album = new FFAlbum({
-    list: [img1, img2, img3, img4],   // Picture collection for album
+    list: [img1, img2, img3],   // Picture collection for album
     x: width / 2,
     y: height / 2,
     width: width,
