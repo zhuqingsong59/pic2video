@@ -5,7 +5,7 @@ const { FFScene, FFAudio, FFAlbum, FFCreator } = require("ffcreator");
 const outputDir = path.join(__dirname, './public/');
 const cacheDir = path.join(__dirname, './cache/');
 const config = require('./config')
-console.log(config)
+console.log(config.creatorConfig)
 // Create FFCreator instance
 const creator = new FFCreator(config.creatorConfig);
 
@@ -19,8 +19,7 @@ creator.addAudio(new FFAudio({
 
 // Create scene2
 const scene = new FFScene();
-scene.setDuration(config.albumList.length + 1)
-creator.addChild(scene);
+
 // Create a multi-photo Album
 const album = new FFAlbum({
     list: config.albumList,   // Picture collection for album
@@ -28,11 +27,14 @@ const album = new FFAlbum({
     y: config.albumHeight / 2,
     width: config.albumWidth,
     height: config.albumHeight,
-    showCover: true
+    showCover: false
 });
 album.setTransition('zoomIn');      // Set album switching animation
-album.setDuration(1);             // Set the stay time of a single sheet
+album.setDuration(2);             // Set the stay time of a single sheet
 scene.addChild(album);
+
+scene.setDuration(album.getTotalDuration() + 1)
+creator.addChild(scene);
 
 creator.output(path.join(__dirname, "./public/hmm.mp4"));
 creator.start();        // Start processing

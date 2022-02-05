@@ -11,6 +11,7 @@ const cover = path.join(__dirname, '../', './resources/cover/hmm.jpg')
 // 背景音乐
 const audio = path.join(__dirname, '../', './resources/audio/bg.mp3');
 // 配置信息
+console.log(cover)
 const videoConfig = {
   // creator配置
   creatorConfig: {
